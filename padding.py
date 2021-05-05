@@ -14,3 +14,8 @@ def padd_mat(matriz):
         for col in range(m_col):
             img[row+1, col+1] = matriz[row, col]
     return img
+    
+def main():
+    mat = np.array(([11, 12, 13], [21, 22, 23], [31, 32, 33]))
+    print(padd_mat(mat))
+main()
