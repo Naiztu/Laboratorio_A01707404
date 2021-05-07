@@ -3,19 +3,16 @@ By José Ángel Rico Mendieta
 """
 import numpy as np #libreria numpy
 
-def padd_mat(matriz):
+def padd_mat(matriz, kernel):
     """Agrega padding"""
+    m_row, m_col = matrix.shape
+    k_row, k_col = kernel.shape
 
-    m_row = np.size(matriz, 0)
-    m_col = np.size(matriz, 1)
+    padd_height = int((k_row - 1) / 2)
+    padd_width = int((k_col - 1) / 2)
 
-    img = np.zeros((m_row+2,m_col+2))
-    for row in range(m_row):
-        for col in range(m_col):
-            img[row+1, col+1] = matriz[row, col]
-    return img
+    padded= np.zeros((m_row + (2 * padd_height), m_col + (2 * padd_width)))
 
-def main():
-    mat = np.array(([11, 12, 13], [21, 22, 23], [31, 32, 33]))
-    print(padd_mat(mat))
-main()
+    padded[padd_height:padded.shape[0] - padd_height, padd_width:padded.shape[1] - padd_width] = matriz
+
+    return padded
