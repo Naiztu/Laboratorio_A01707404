@@ -5,7 +5,7 @@ import numpy as np #libreria numpy
 
 def padd_mat(matriz, kernel):
     """Agrega padding"""
-    m_row, m_col = matrix.shape
+    m_row, m_col = matriz.shape
     k_row, k_col = kernel.shape
 
     padd_height = int((k_row - 1) / 2)
